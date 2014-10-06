@@ -14,7 +14,7 @@ class Students
     all.each do |person|
       age_array << person[:age]
     end
-    age_array[:age].inject(:+)/age_array.length
+    age_array.inject(:+)/age_array.length
   end
 
   def name_string
@@ -30,15 +30,16 @@ class Students
   end
 
   def any_older_than?(age)
-    if all.detect {|n| n[:age] >= age}
-      true
-    else
-      false
-    end
+    all.any? {|person| person[:age] > age}
+    # if all.detect {|n| n[:age] >= age}
+    #   true
+    # else
+    #   false
+    # end
   end
 
   def find_student(student_to_find)
-    all.detect {|n| n == student_to_find}
+    all.detect {|person| person == student_to_find}
   end
 
   def student_present?(student_to_find)

@@ -14,7 +14,7 @@ class Students
     all.each do |person|
       age_array << person[:age]
     end
-    age_array.inject(:+)/age_array.length
+    age_array[:age].inject(:+)/age_array.length
   end
 
   def name_string
